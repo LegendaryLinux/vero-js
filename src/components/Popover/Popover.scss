@@ -1,0 +1,37 @@
+.vero-popover-trigger{
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.vero-popover-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  animation-name: fade-in;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+
+  @keyframes fade-in {
+    from{
+      background-color: rgba(0, 0, 0, 0.0);
+    }
+
+    to{
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.vero-popover-content {
+  position: absolute;
+  visibility: hidden;
+}

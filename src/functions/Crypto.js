@@ -15,3 +15,14 @@ export const digestToHex = (string) => new Promise((resolve, reject) => {
     resolve(hashHex);
   });
 });
+
+/**
+ * Generate a UUID
+ * @param seed {String}
+ * @returns {string|*}
+ */
+export const genUUID = (seed=null) => {
+  return seed ?
+    (seed ^ Math.random() * 16 >> seed / 4).toString(16) :
+    ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, genUUID);
+}

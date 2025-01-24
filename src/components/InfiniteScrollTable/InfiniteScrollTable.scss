@@ -1,0 +1,83 @@
+.infinite-scroll-table-container{
+  /* Tables, rows, and columns */
+  $table-header-background: #f0f0ee;
+  $table-row-background: #ffffff;
+  $table-row-highlight: #f8f9f9;
+  $table-border-color: #d3d3d3;
+
+  font-family: 'PT Sans', 'sans-serif';
+  background-color: #ffffff;
+  width: 100%;
+
+  .infinite-scroll-table{
+    width: 100%;
+    border: 1px solid #ececec;
+    align-items: center;
+    vertical-align: center;
+    border-spacing: 0;
+    border-bottom: none;
+
+    tbody{
+      overflow-y: auto;
+
+      tr {
+        background-color: $table-row-background;
+        border-top: 1px solid $table-border-color;
+      }
+      tr:hover {
+        background-color: $table-row-highlight;
+      }
+    }
+
+    thead tr{
+      height: 2em;
+      background-color: $table-header-background;
+    }
+
+    thead, tbody{
+      tr{
+        line-height: 1.5em;
+      }
+    }
+
+    th, td{
+      padding: 0.5em 1em;
+      text-align: left;
+      border-bottom: 1px solid #ececec;
+    }
+
+    .is-sortable:hover{
+      cursor: pointer;
+    }
+
+    .is-centered{
+      text-align: center;
+    }
+  }
+
+  .infinite-scroll-table-footer{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    justify-content: space-around;
+
+    svg{
+      animation-duration: 1s;
+      animation-name: spin;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      height: 30px;
+
+      @keyframes spin{
+        from{
+          rotate: 0deg;
+        }
+
+        to{
+          rotate: 360deg;
+        }
+      }
+    }
+  }
+}

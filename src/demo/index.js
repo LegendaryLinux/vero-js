@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {Demo as AutoComplete} from '../components/AutoComplete/Demo';
 import {Demo as InfiniteScrollTable} from '../components/InfiniteScrollTable/Demo';
+import {Demo as Modal} from '../components/Modal/Demo';
 
 const DemoSite = () => {
   const [activeComponent, setActiveComponent] = useState(null);
@@ -17,7 +18,9 @@ const DemoSite = () => {
           InfiniteScrollTable
         </button>
 
-        <button>Baz</button>
+        <button onClick={() => setActiveComponent(<Modal />)}>
+          Modal
+        </button>
       </div>
       <div style={{margin: '0.5rem', border: '1px solid #000000'}}>
         {activeComponent}

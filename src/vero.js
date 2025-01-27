@@ -11,15 +11,19 @@ import {BannerMessage, resetBannerMessage, showSuccessBanner, showWarningBanner,
 import {digestToHex, genUUID} from './functions/Crypto';
 import {getParam} from './functions/URLTools';
 
-export {
+export const Classes = {
   Tour,
-  AutoComplete,
-  InfiniteScrollTable,
-  IntegerInput, NumericInput,
-  states, getStateOptions, getMiniStateOptions,
-  Modal,
-  Popover,
-  BannerMessage, resetBannerMessage, showSuccessBanner, showWarningBanner, showErrorBanner,
-  digestToHex, genUUID,
-  getParam
 };
+
+export const Components = {
+  AutoComplete, InfiniteScrollTable, IntegerInput, NumericInput, Modal, Popover, BannerMessage
+};
+
+export const Functions = {
+  Banners: {resetBannerMessage, showSuccessBanner, showWarningBanner, showErrorBanner},
+  Builders: {getStateOptions, getMiniStateOptions},
+  Crypto: {digestToHex, genUUID},
+  URLTools: {getParam},
+};
+
+export const Data = {states};

@@ -30,7 +30,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname),
-    filename: "[name].js",
+    filename: "dist/[name].js",
     libraryTarget: 'umd',
     library: '@vero/js',
     umdNamedDefine: true,

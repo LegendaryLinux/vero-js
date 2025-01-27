@@ -1,6 +1,16 @@
 import React, {useState, useRef, useEffect} from 'react';
 import './AutoComplete.scss';
 
+/**
+ * @param options {Array}
+ * @param onUpdate {Function}
+ * @param defaultValue {String|null}
+ * @param allowUserValues {Boolean}
+ * @param showListOnFocus {Boolean}
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export const AutoComplete = ({options=[], onUpdate, defaultValue=null, allowUserValues=true,
                                showListOnFocus=true, ...props}) => {
   const wrapperRef = useRef(null);

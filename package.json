@@ -1,6 +1,6 @@
 {
-  "name": "@vero/js",
-  "version": "0.1.0",
+  "name": "@veroproducts/js",
+  "version": "0.2.0",
   "description": "A collection of Javascripts and React components developed for Vero, LLC's websites.",
   "main": "dist/vero.js",
   "scripts": {

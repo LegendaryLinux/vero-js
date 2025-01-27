@@ -1,11 +1,9 @@
 {
-  "name": "@veroproducts/js",
-  "version": "0.2.0",
+  "name": "@veroproducts/functions",
+  "version": "0.1.0",
   "description": "A collection of Javascripts and React components developed for Vero, LLC's websites.",
-  "main": "dist/vero.js",
+  "main": "dist/Functions.js",
   "scripts": {
-    "host": "http-server -p 8080 public/",
-    "dev": "webpack --config webpack.config.dev.js --watch",
     "build": "webpack --config webpack.config.prod.js"
   },
   "repository": {
@@ -26,15 +24,11 @@
   },
   "homepage": "https://github.com/LegendaryLinux/vero-js#readme",
   "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
+    "@babel/core": "^7.26.7",
+    "@babel/preset-env": "^7.26.7",
     "@babel/preset-react": "^7.26.3",
     "babel-loader": "^9.2.1",
-    "css-loader": "^7.1.2",
     "http-server": "^14.1.1",
-    "sass": "^1.83.4",
-    "sass-loader": "^16.0.4",
-    "style-loader": "^4.0.0",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
   },
@@ -42,6 +36,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@sjmc11/tourguidejs": "^0.0.19",
+    "@veroproducts/data": "^0.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }

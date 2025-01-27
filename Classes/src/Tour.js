@@ -1,6 +1,6 @@
 import {TourGuideClient} from '@sjmc11/tourguidejs';
 
-export default class Tour {
+export class Tour {
   /**
    * Constructor.
    * @param tourName {String} Must be unique across all tours. A prefix is recommended

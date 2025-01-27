@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
-    index: './src/demo/index.js'
+    Functions: './src/Functions.js'
   },
   module: {
     rules: [
@@ -29,7 +29,10 @@ module.exports = {
     ]
   },
   output: {
-    path: path.resolve(__dirname)+'/public/js',
-    filename: "[name].js",
+    path: path.resolve(__dirname),
+    filename: "dist/[name].js",
+    libraryTarget: 'umd',
+    library: '@veroproducts/functions',
+    umdNamedDefine: true,
   }
 };

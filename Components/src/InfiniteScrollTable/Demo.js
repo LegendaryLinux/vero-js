@@ -1,6 +1,6 @@
 import React from 'react';
 import {InfiniteScrollTable} from './InfiniteScrollTable';
-import {genUUID} from '../../functions/Crypto';
+import {genUUID} from '../../../Functions/src/Crypto';
 
 export const Demo = () => {
 	const headers = [

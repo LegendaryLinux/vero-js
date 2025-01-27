@@ -1,4 +1,4 @@
 .idea/
-.node_modules/
-public/js/
-dist/
+*/public/js
+*/node_modules
+*/dist/*

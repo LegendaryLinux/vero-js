@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCaretUp, faCaretDown, faSpinner} from '@fortawesome/free-solid-svg-icons';
-import {genUUID} from '../../functions/Crypto';
+import {genUUID} from '../../../Functions/src/Crypto';
 import './InfiniteScrollTable.scss';
 
 /**

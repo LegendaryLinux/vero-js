@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   mode: 'production',
   entry: {
-    Functions: './src/Functions.js'
+    Functions: './src/index.js'
   },
   module: {
     rules: [

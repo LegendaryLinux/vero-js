@@ -92,7 +92,7 @@ export const resetBannerMessage = (replace=true) => {
  * @param alwaysOnTop {Boolean} If true, stays on top with position fixed. Default false for position static
  */
 export const showSuccessBanner = (message, alwaysOnTop=false) => {
-  this.resetBannerMessage();
+  resetBannerMessage();
   const root = createRoot(document.getElementById('fidelis-banner-message-container'));
   root.render(<BannerMessage message={message} alwaysOnTop={alwaysOnTop} />);
 }
@@ -103,7 +103,7 @@ export const showSuccessBanner = (message, alwaysOnTop=false) => {
  * @param alwaysOnTop {Boolean} If true, stays on top with position fixed. Default false for position static
  */
 export const showWarningBanner = (message, alwaysOnTop=false) => {
-  this.resetBannerMessage();
+  resetBannerMessage();
   const root = createRoot(document.getElementById('fidelis-banner-message-container'));
   root.render(<BannerMessage message={message} isWarning={true} alwaysOnTop={alwaysOnTop} warningColor="#000000" />);
 }
@@ -114,7 +114,7 @@ export const showWarningBanner = (message, alwaysOnTop=false) => {
  * @param alwaysOnTop {Boolean} If true, stays on top with position fixed. Default false for position static
  */
 export const showErrorBanner = (message, alwaysOnTop=false) => {
-  this.resetBannerMessage();
+  resetBannerMessage();
   const root = createRoot(document.getElementById('fidelis-banner-message-container'));
   root.render(<BannerMessage message={message} isError={true} alwaysOnTop={alwaysOnTop} />);
 }

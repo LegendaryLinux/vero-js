@@ -18,8 +18,8 @@ export const digestToHex = (string) => new Promise((resolve, reject) => {
 
 /**
  * Generate a UUID
- * @param seed {String}
  * @returns {string|*}
+ * @deprecated Use crypto.randomUUID() instead
  */
 export const genUUID = (seed=null) => {
   return seed ?

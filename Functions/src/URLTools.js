@@ -1,6 +1,7 @@
 /**
+ * Fetch a GET parameter from the URL
  * @param param
- * @returns {*|null}
+ * @returns {String|null}
  */
 export const getParam = (param) => {
   let thisParam = [];
@@ -10,4 +11,5 @@ export const getParam = (param) => {
       return decodeURIComponent(thisParam[1]);
     }
   }
+  return null;
 }

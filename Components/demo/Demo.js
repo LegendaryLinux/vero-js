@@ -3,6 +3,8 @@ import {createRoot} from 'react-dom/client';
 import {Demo as AutoComplete} from '../src/AutoComplete/Demo';
 import {Demo as InfiniteScrollTable} from '../src/InfiniteScrollTable/Demo';
 import {Demo as Modal} from '../src/Modal/Demo';
+import {IntegerInput} from '../src/Inputs/IntegerInput';
+import {NumericInput} from '../src/Inputs/NumericInput';
 
 export const Demo = () => {
   const [activeComponent, setActiveComponent] = useState(null);
@@ -10,20 +12,28 @@ export const Demo = () => {
   return (
     <>
       <div>
-        <button onClick={() => setActiveComponent(<AutoComplete/>)}>
+        <button onClick={() => setActiveComponent(<AutoComplete />)}>
           AutoComplete
         </button>
 
-        <button onClick={() => setActiveComponent(<InfiniteScrollTable/>)}>
+        <button onClick={() => setActiveComponent(<InfiniteScrollTable />)}>
           InfiniteScrollTable
         </button>
 
-        <button onClick={() => setActiveComponent(<Modal/>)}>
+        <button onClick={() => setActiveComponent(<Modal />)}>
           Modal
+        </button>
+
+        <button onClick={() => setActiveComponent(<NumericInput />)}>
+          NumericInput
+        </button>
+
+        <button onClick={() => setActiveComponent(<IntegerInput />)}>
+          IntegerInput
         </button>
       </div>
       <div style={{border: '1px solid #000000', width: '100%', marginTop: '0.5rem'}}>
-        {activeComponent}
+      {activeComponent}
       </div>
     </>
   );

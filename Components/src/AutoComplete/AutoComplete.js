@@ -2,6 +2,11 @@ import React, {useState, useRef, useEffect} from 'react';
 import './AutoComplete.scss';
 
 /**
+ * Stub function to act as a placeholder if no onUpdate prop is passed to the AutoComplete component
+ */
+const noOp = () => {};
+
+/**
  * @param options {Array}
  * @param onUpdate {Function}
  * @param defaultValue {String|null}
@@ -11,7 +16,7 @@ import './AutoComplete.scss';
  * @returns {JSX.Element}
  * @constructor
  */
-export const AutoComplete = ({options=[], onUpdate, defaultValue=null, allowUserValues=true,
+export const AutoComplete = ({options=[], onUpdate=noOp, defaultValue=null, allowUserValues=true,
                                showListOnFocus=true, ...props}) => {
   const wrapperRef = useRef(null);
   const optionBoxRef = useRef(null);

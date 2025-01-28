@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const NumericInput = ({type, onKeyDown, ...props}) => {
+export const NumericInput = ({onKeyDown, ...props}) => {
   const handleKeyDown = (evt) => {
     if (evt.ctrlKey || evt?.key?.length > 1 || /[0-9.]/.test(evt.key)) {
       if (onKeyDown) { onKeyDown(evt); }
@@ -11,11 +11,14 @@ export const NumericInput = ({type, onKeyDown, ...props}) => {
 
   const handlePaste = (evt) => {
     let pasteData = (evt.clipboardData || window.clipboardData).getData('text');
-    if (/[^0-9.]/.test(pasteData)) {
-      evt.target.value = pasteData.replace(/[^0-9.]/, '');
+    if (/[^0-9.]/g.test(pasteData)) {
+      evt.target.value = pasteData.replace(/[^0-9.]/g, '');
       handleKeyDown(evt);
     }
   };
+
+  // Ensure the input is always type=number
+  delete props.type;
 
   return (
     <input

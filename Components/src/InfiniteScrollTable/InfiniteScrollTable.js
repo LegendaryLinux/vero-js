@@ -1,7 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCaretUp, faCaretDown, faSpinner} from '@fortawesome/free-solid-svg-icons';
-import {Crypto} from '@veroproducts/functions';
 import './InfiniteScrollTable.scss';
 
 /**
@@ -94,7 +93,7 @@ export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<F
       );
     });
 
-    return <tr key={Crypto.genUUID()}>{headerColumns}</tr>;
+    return <tr key={crypto.randomUUID()}>{headerColumns}</tr>;
   };
 
   const makeBody = () => {
@@ -122,10 +121,10 @@ export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<F
         }
 
         // Add the column to the row
-        return <td key={Crypto.genUUID()} className={centerClass}>{printVal}</td>;
+        return <td key={crypto.randomUUID()} className={centerClass}>{printVal}</td>;
       });
 
-      return <tr key={Crypto.genUUID()}>{displayedColumns}</tr>;
+      return <tr key={crypto.randomUUID()}>{displayedColumns}</tr>;
     });
   };
 

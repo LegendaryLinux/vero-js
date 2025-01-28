@@ -1,8 +1,8 @@
 {
-  "name": "@veroproducts/functions",
-  "version": "0.1.0",
+  "name": "@veroproducts/data",
+  "version": "0.2.0",
   "description": "A collection of Javascripts and React components developed for Vero, LLC's websites.",
-  "main": "dist/Functions.js",
+  "main": "dist/Data.js",
   "scripts": {
     "build": "webpack --config webpack.config.prod.js"
   },
@@ -23,6 +23,5 @@
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

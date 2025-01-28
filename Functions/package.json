@@ -1,10 +1,12 @@
 {
   "name": "@veroproducts/functions",
-  "version": "0.2.0",
+  "version": "0.5.0",
   "description": "A collection of Javascripts and React components developed for Vero, LLC's websites.",
   "main": "dist/Functions.js",
   "scripts": {
-    "build": "webpack --config webpack.config.prod.js"
+    "build": "webpack --config webpack.config.prod.js",
+    "dev": "webpack --config webpack.config.dev.js --watch",
+    "host": "http-server -p 8080 public"
   },
   "repository": {
     "type": "git",
@@ -36,7 +38,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@sjmc11/tourguidejs": "^0.0.19",
-    "@veroproducts/data": "^0.1.0",
+    "@veroproducts/data": "^0.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }

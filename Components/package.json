@@ -1,6 +1,6 @@
 {
   "name": "@veroproducts/components",
-  "version": "0.1.1",
+  "version": "0.4.0",
   "description": "A collection of Javascripts and React components developed for Vero, LLC's websites.",
   "main": "dist/Components.js",
   "scripts": {
@@ -41,6 +41,7 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@veroproducts/functions": "^0.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }

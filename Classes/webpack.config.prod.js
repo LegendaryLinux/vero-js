@@ -31,8 +31,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname),
     filename: "dist/[name].js",
-    libraryTarget: 'umd',
-    library: '@veroproducts/classes',
-    umdNamedDefine: true,
+    libraryTarget: 'commonjs2',
   }
 };

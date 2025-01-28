@@ -1,3 +1,4 @@
+import React from 'react';
 import {states} from '@veroproducts/data';
 
 /**

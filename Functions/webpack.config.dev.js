@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: {
-    Data: './src/index.js'
+    demo: './demo/Demo.js'
   },
   module: {
     rules: [
@@ -14,8 +14,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.resolve(__dirname),
-    filename: "dist/[name].js",
-    libraryTarget: 'commonjs2',
+    path: path.resolve(__dirname)+'/public/js',
+    filename: "[name].js",
   }
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import {InfiniteScrollTable} from './InfiniteScrollTable';
-import {genUUID} from '../../../Functions/src/Crypto';
+import {Crypto} from '@veroproducts/functions';
 
 export const Demo = () => {
 	const headers = [
@@ -12,7 +12,7 @@ export const Demo = () => {
 	];
 
 	const loadMoreData = (marker = null) => new Promise((resolve) => {
-		marker = genUUID();
+		marker = Crypto.genUUID();
 		setTimeout(() => {
 			fetch('https://random-data-api.com/api/v2/users?size=10&response_type=json', {method: 'GET',})
 				.then(async (response) => {

@@ -32,5 +32,9 @@ module.exports = {
     path: path.resolve(__dirname),
     filename: "dist/[name].js",
     libraryTarget: 'commonjs2',
+  },
+  externals: {
+    react: "react",
+    "react-dom": "react-dom",
   }
 };

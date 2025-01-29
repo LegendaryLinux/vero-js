@@ -7,9 +7,9 @@ import './AutoComplete.scss';
 const noOp = () => {};
 
 /**
- * @param options {Array}
+ * @param options {Array.<{name: String, value: String}>}
  * @param onUpdate {Function}
- * @param defaultValue {String|null}
+ * @param defaultValue {String}
  * @param allowUserValues {Boolean}
  * @param showListOnFocus {Boolean}
  * @param props

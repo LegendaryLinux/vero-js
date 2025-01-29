@@ -5,7 +5,7 @@ import './InfiniteScrollTable.scss';
 
 /**
  * A table component which will attempt to fetch more data when the bottom of the table is scrolled into view
- * @param headers {Array}
+ * @param headers {Array<{key: String, name: String, sortable: Boolean, center: Boolean}>}
  * @param loadMoreData {Function}
  * @param loadingComponent {JSX.Element}
  * @param noDataMessage {String}

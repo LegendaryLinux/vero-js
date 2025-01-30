@@ -5,6 +5,7 @@ import {Demo as InfiniteScrollTable} from '../src/InfiniteScrollTable/Demo';
 import {Demo as Modal} from '../src/Modal/Demo';
 import {IntegerInput} from '../src/Inputs/IntegerInput';
 import {NumericInput} from '../src/Inputs/NumericInput';
+import {Demo as Tooltip} from '../src/Tooltip/Demo';
 
 export const Demo = () => {
   const [activeComponent, setActiveComponent] = useState(null);
@@ -30,6 +31,10 @@ export const Demo = () => {
 
         <button onClick={() => setActiveComponent(<IntegerInput />)}>
           IntegerInput
+        </button>
+
+        <button onClick={() => setActiveComponent(<Tooltip />)}>
+          Tooltip
         </button>
       </div>
       <div style={{border: '1px solid #000000', width: '100%', marginTop: '0.5rem'}}>

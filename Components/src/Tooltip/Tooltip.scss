@@ -1,0 +1,51 @@
+.vero-tooltip{
+  display: inline-block;
+}
+
+[data-vero-tooltip] {
+  position: relative;
+  z-index: 50;
+}
+
+[data-vero-tooltip]:before,
+[data-vero-tooltip]:after {
+  visibility: hidden;
+  opacity: 0;
+}
+
+[data-vero-tooltip]:before {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -5em;
+  width: 10em;
+  padding: 0.25em;
+  border-radius: 4px;
+  background-color: rgba(51, 51, 51, 1);
+  color: #ffffff;
+  content: attr(data-vero-tooltip);
+  text-align: center;
+  font-size: medium;
+  line-height: 1.2em;
+}
+
+[data-vero-tooltip]:after {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid hsla(0, 0%, 20%, 1);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: "";
+  font-size: 0;
+  line-height: 0;
+}
+
+[data-vero-tooltip]:hover:before,
+[data-vero-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}

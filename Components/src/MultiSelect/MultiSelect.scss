@@ -1,0 +1,30 @@
+.multi-select-wrapper{
+  display: inline-block;
+
+  .multi-select-options{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    position: absolute;
+    z-index: 100;
+    background-color: #ffffff;
+    max-height: 300px;
+    overflow-y: auto;
+
+    .multi-select-option{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      cursor: pointer;
+      padding: 0.5rem;
+
+      input[type=checkbox]{
+        margin-right: 0.5rem;
+      }
+
+      &:hover{
+        background-color: #e7f5ff;
+      }
+    }
+  }
+}

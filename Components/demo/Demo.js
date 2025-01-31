@@ -4,6 +4,7 @@ import {Demo as AutoComplete} from '../src/AutoComplete/Demo';
 import {Demo as InfiniteScrollTable} from '../src/InfiniteScrollTable/Demo';
 import {Demo as Modal} from '../src/Modal/Demo';
 import {IntegerInput} from '../src/Inputs/IntegerInput';
+import {Demo as MultiSelect} from '../src/MultiSelect/Demo';
 import {NumericInput} from '../src/Inputs/NumericInput';
 import {Demo as Tooltip} from '../src/Tooltip/Demo';
 
@@ -27,6 +28,10 @@ export const Demo = () => {
 
         <button onClick={() => setActiveComponent(<NumericInput />)}>
           NumericInput
+        </button>
+
+        <button onClick={() => setActiveComponent(<MultiSelect />)}>
+          MultiSelect
         </button>
 
         <button onClick={() => setActiveComponent(<IntegerInput />)}>

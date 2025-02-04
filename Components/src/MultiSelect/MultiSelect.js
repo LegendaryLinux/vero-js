@@ -103,6 +103,14 @@ export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], ...prop
     // defaultValue is handled in componentDidMount
     delete cleanProps.defaultValue;
 
+    // Populate placeholder with selection
+    cleanProps.placeholder = (selectedOptions.length === 0) ?
+      (props.placeholder || '') :
+      selectedOptions.length > 1 ?
+        `${selectedOptions.length} values` :
+        options.find((opt) => opt.value === selectedOptions[0]).name
+    delete props.placeholder;
+
     // Overwrite props assigned to input element with our own handlers, then run user-defined handlers afterward
     cleanProps.onClick = (e) => {handleInputFocusOrClick(); props.onclick ? props.onclick(e) : null};
     cleanProps.onFocus = (e) => {handleInputFocusOrClick(); props.onfocus ? props.onfocus(e) : null};

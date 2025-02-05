@@ -32,6 +32,7 @@ export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<F
   const [sortValue, setSortValue] = useState(initialSortKey);
   const [sortAsc, setSortAsc] = useState(initialSortAsc);
   const [marker, setMarker] = useState(initialMarker);
+  const [sortChangedFlag, setSortChangedFlag] = useState(false);
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].intersectionRatio <= 0) { return; }
     fetchData();
@@ -49,8 +50,17 @@ export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<F
     setDataRows([]);
     setMarker(null);
     setInitialFetchComplete(false);
-    fetchData();
+    setNoFurtherData(false);
+    setSortChangedFlag(true);
   }, [sortValue, sortAsc]);
+
+  useEffect(() => {
+    if (sortChangedFlag) {
+      fetchData();
+    }
+
+    setSortChangedFlag(false);
+  }, [sortChangedFlag]);
 
   const fetchData = () => {
     if (noFurtherData) {

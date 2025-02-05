@@ -48,6 +48,7 @@ export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<F
   useEffect(() => {
     setDataRows([]);
     setMarker(null);
+    setInitialFetchComplete(false);
     fetchData();
   }, [sortValue, sortAsc]);
 

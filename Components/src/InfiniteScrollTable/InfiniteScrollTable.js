@@ -15,12 +15,14 @@ import './InfiniteScrollTable.scss';
  * @param autoLoad {Boolean} If false, the component will show a "Load More" button instead of automatically
  * loading more data. Default true
  * @param loadMoreButtonText {String} Text used for the "Load More" button. Default 'Load More Data'
+ * @param tableClass {String|null} Class to apply to the table
  * @returns {JSX.Element}
  * @constructor
  */
 export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<FontAwesomeIcon icon={faSpinner} />),
                                      noDataMessage='No data could be found.', initialMarker=null, initialSortKey=null,
-                                     initialSortAsc=true, autoLoad=true, loadMoreButtonText='Load More Data'
+                                     initialSortAsc=true, autoLoad=true, loadMoreButtonText='Load More Data',
+                                     tableClass=null
 }) => {
   const tBodyRef = useRef(null);
   const [showLoading, setShowLoading] = useState(true);
@@ -157,7 +159,7 @@ export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<F
           </div>
         ) : (
           <>
-            <table className="infinite-scroll-table">
+            <table className={`infinite-scroll-table ${tableClass}`}>
               <thead>{makeHeader()}</thead>
               <tbody ref={tBodyRef}>{makeBody()}</tbody>
             </table>

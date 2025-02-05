@@ -7,10 +7,10 @@ export const Demo = () => (
     <br />
     <SortableTable
       headers={[
-        {key: 'name', name: 'Name', sortable: true},
+        {key: 'name', name: 'Name'},
         {key: 'rank', name: 'Rank', center: true},
-        {key: 'species', name: 'Species', sortable: true},
-        {key: 'position', name: 'Position', sortable: true, center: true},
+        {key: 'species', name: 'Species', sortable: false},
+        {key: 'position', name: 'Position',center: true},
       ]}
       data={[
         {name: 'kirk', rank: 'Captain', species: 'Human', position: 'Captain', overrides: {name: <span>James T. Kirk</span>}},

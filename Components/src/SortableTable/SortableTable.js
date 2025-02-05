@@ -17,10 +17,14 @@ export const SortableTable = ({headers, data, initialSortKey=null, initialSortAs
   const [sortKey, setSortKey] = useState(initialSortKey);
   const [sortAsc, setSortAsc] = useState(initialSortAsc);
 
-  const handleHeaderClick = (key) => {
+  const handleHeaderClick = (header) => {
+    if (header.sortable === false) {
+      return;
+    }
+
     // If this is a new header, sort it asc
-    if (sortKey !== key) {
-      setSortKey(key);
+    if (sortKey !== header.key) {
+      setSortKey(header.key);
       setSortAsc(true);
       return;
     }
@@ -66,8 +70,8 @@ export const SortableTable = ({headers, data, initialSortKey=null, initialSortAs
         {headers.map((header) => (
           <th
             key={header.key}
-            onClick={header.sortable ? (() => handleHeaderClick(header.key)) : null}
-            className={`${header.center ? 'center' : null} ${header.sortable ? 'sortable' : null}`}
+            onClick={() => handleHeaderClick(header)}
+            className={`${header.center ? 'center' : null} ${(header.sortable !== false) ? 'sortable' : null}`}
           >
             {header.name}
             </th>

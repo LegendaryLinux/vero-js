@@ -7,6 +7,7 @@ import {IntegerInput} from '../src/Inputs/IntegerInput';
 import {Demo as MultiSelect} from '../src/MultiSelect/Demo';
 import {NumericInput} from '../src/Inputs/NumericInput';
 import {Demo as Tooltip} from '../src/Tooltip/Demo';
+import {Demo as SortableTable} from '../src/SortableTable/Demo';
 
 export const Demo = () => {
   const [activeComponent, setActiveComponent] = useState(null);
@@ -40,6 +41,10 @@ export const Demo = () => {
 
         <button onClick={() => setActiveComponent(<Tooltip />)}>
           Tooltip
+        </button>
+
+        <button onClick={() => setActiveComponent(<SortableTable />)}>
+          SortableTable
         </button>
       </div>
       <div style={{border: '1px solid #000000', width: '100%', marginTop: '0.5rem'}}>

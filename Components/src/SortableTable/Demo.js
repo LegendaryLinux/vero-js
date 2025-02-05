@@ -13,7 +13,7 @@ export const Demo = () => (
         {key: 'position', name: 'Position', sortable: true, center: true},
       ]}
       data={[
-        {name: 'kirk', rank: 'Captain', species: 'Human', position: 'Captain', overrides: {name: 'James T. Kirk'}},
+        {name: 'kirk', rank: 'Captain', species: 'Human', position: 'Captain', overrides: {name: <span>James T. Kirk</span>}},
         {name: 'spock', rank: 'Commander', species: 'Vulcan/Human', position: 'Science Officer', overrides: {name: 'Spock'}},
         {name: 'mccoy', rank: 'Commander', species: 'Human', position: 'Chief Medical Officer', overrides: {name: 'Leonard McCoy'}},
         {name: 'scott', rank: 'Lieutenant Commander', species: 'Human', position: 'Chief Engineer', overrides: {name: 'Montgomery Scott'}},

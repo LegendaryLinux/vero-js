@@ -4,7 +4,7 @@ import './SortableTable.scss';
 /**
  * @param headers {Array<{key: String, name: String, sortable: Boolean, center: Boolean}>}
  * Ex. [{key: 'name', name: 'Name'}, {key: 'address', name: 'Address'}]
- * @param data {Array<{[key: String]: JSX.Element, overrides: Object<{[key: String]: JSX.Element}>}
+ * @param data {Array<{[key: String]: String|Number, overrides: Object<{[key: String]: JSX.Element|String|Number}>}
  * Ex. [{name: 'Jim', address: '123 Somewhere St.', overrides: {name: 'Jimbo'}}]
  * @param initialSortKey {String} Default null
  * @param initialSortAsc {Boolean} Default true
@@ -36,17 +36,16 @@ export const SortableTable = ({headers, data, initialSortKey=null, initialSortAs
       1;
 
   const buildTableRows = () => {
-    const tableData = structuredClone(data);
     if (sortKey) {
-      tableData.sort((a, b) => sortAlgo(sortAsc ? a : b, sortAsc ? b : a));
+      data.sort((a, b) => sortAlgo(sortAsc ? a : b, sortAsc ? b : a));
     }
 
     return (
-      tableData.map((row) => (
+      data.map((row) => (
         <tr key={crypto.randomUUID()}>
           {
             headers.map((h) => (
-              <td className={h.center ? 'center' : null}>
+              <td key={crypto.randomUUID()} className={h.center ? 'center' : null}>
                 {
                   row.overrides && row.overrides?.[h.key] ?
                     row.overrides[h.key] :

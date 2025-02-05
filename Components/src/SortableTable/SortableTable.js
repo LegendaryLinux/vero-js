@@ -13,7 +13,7 @@ import './SortableTable.scss';
  * @constructor
  */
 export const SortableTable = ({headers, data, initialSortKey=null, initialSortAsc=true,
-                                tableClass='sortable-table', ...props}) => {
+                                tableClass=null, ...props}) => {
   const [sortKey, setSortKey] = useState(initialSortKey);
   const [sortAsc, setSortAsc] = useState(initialSortAsc);
 
@@ -60,7 +60,7 @@ export const SortableTable = ({headers, data, initialSortKey=null, initialSortAs
   };
 
   return (
-    <table className={tableClass} {...props}>
+    <table className={`sortable-table ${tableClass}`} {...props}>
       <thead>
       <tr>
         {headers.map((header) => (

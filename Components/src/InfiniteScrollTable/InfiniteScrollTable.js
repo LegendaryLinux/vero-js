@@ -6,7 +6,7 @@ import './InfiniteScrollTable.scss';
 /**
  * A table component which will attempt to fetch more data when the bottom of the table is scrolled into view
  * @param headers {Array<{key: String, name: String, sortable: Boolean, center: Boolean}>}
- * @param loadMoreData {Function}
+ * @param loadMoreData {Function} (marker, sortValue, sortAsc) => new Promise((resolve) => resolve(dataRows));
  * @param loadingComponent {JSX.Element}
  * @param noDataMessage {String}
  * @param initialMarker {String}
@@ -40,12 +40,13 @@ export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<F
   }, []);
 
   useEffect(() => {
-    sortData();
     reTargetObserver();
   }, [dataRows, initialFetchComplete]);
 
   useEffect(() => {
-    sortData();
+    setDataRows([]);
+    setMarker(null);
+    fetchData();
   }, [sortValue, sortAsc]);
 
   const fetchData = () => {
@@ -55,7 +56,7 @@ export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<F
     }
 
     setShowLoading(true);
-    loadMoreData(marker).then((results) => {
+    loadMoreData(marker, sortValue, sortAsc).then((results) => {
       setShowLoading(false);
       setDataRows(dataRows.concat(results.data));
       setMarker(results.marker);
@@ -135,28 +136,6 @@ export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<F
     } else {
       setSortAsc(true);
     }
-  };
-
-  const sortData = () => {
-    if (!sortValue) { return; }
-
-    const sortedArray = dataRows;
-    sortedArray.sort((a, b) => {
-      const aVal = (a[sortValue] === null) ?
-        null :
-        a[sortValue].toString().toLowerCase();
-      const bVal = (b[sortValue] === null) ?
-        null :
-        b[sortValue].toString().toLowerCase();
-
-      // Null values and empty strings are always sorted to be last
-      if (aVal === null || aVal === '') { return sortAsc ? 1 : 0; }
-      if (bVal === null || bVal === '') { return sortAsc ? -1 : 0; }
-      if (aVal > bVal) { return sortAsc ? 1 : -1; }
-      if (aVal < bVal) { return sortAsc ? -1 : 1; }
-      return 0;
-    });
-    setDataRows(sortedArray);
   };
 
   const reTargetObserver = () => {

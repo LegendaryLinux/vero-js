@@ -1,5 +1,13 @@
 .multi-select-wrapper{
-  display: inline-block;
+  width: fit-content;
+
+  *{
+    box-sizing: border-box;
+  }
+
+  input:not([type]){
+    width: 100%;
+  }
 
   .multi-select-options{
     display: flex;

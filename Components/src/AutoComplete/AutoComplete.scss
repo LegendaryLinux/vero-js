@@ -1,6 +1,10 @@
 .autocomplete-wrapper{
   display: inline-block;
 
+  *{
+    box-sizing: border-box;
+  }
+
   .autocomplete-options{
     display: flex;
     flex-direction: column;
@@ -14,7 +18,7 @@
     .autocomplete-option{
       padding: 7px;
       cursor: pointer;
-      width: calc(100% - 14px);
+      width: 100%;
 
       &.highlighted{
         background-color: #e7f5ff;

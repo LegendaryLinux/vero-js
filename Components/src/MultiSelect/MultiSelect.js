@@ -10,11 +10,12 @@ const noOp = () => {};
  * @param options {Array.<{name: String, value: String}>}
  * @param onUpdate {Function}
  * @param defaultValue {Array<String>} Array of values to be initially highlighted
+ * @param width {String} CSS width value. Ex. 20px, 5rem
  * @param props
  * @returns {JSX.Element}
  * @constructor
  */
-export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], ...props}) => {
+export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], width=null, ...props}) => {
   const wrapperRef = useRef(null);
   const optionBoxRef = useRef(null);
   const inputRef = useRef(null);
@@ -120,13 +121,17 @@ export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], ...prop
     return cleanProps;
   };
 
+  const optionBoxStyle = {
+    width: inputRef.current ? `${inputRef.current.offsetWidth}px` : 'fit-content',
+  };
+
   return (
     <div className="multi-select-wrapper" ref={wrapperRef}>
-      <input ref={inputRef} {...buildProps()} />
+      <input ref={inputRef} style={{width}} {...buildProps()} />
       {
         displayOptions ?
           (
-            <div className="multi-select-options" ref={optionBoxRef}>
+            <div className="multi-select-options" style={optionBoxStyle} ref={optionBoxRef}>
               {
                 currentOptions.map((opt) => (
                   <div

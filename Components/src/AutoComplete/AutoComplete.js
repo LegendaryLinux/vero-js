@@ -12,12 +12,13 @@ const noOp = () => {};
  * @param defaultValue {String}
  * @param allowUserValues {Boolean}
  * @param showListOnFocus {Boolean}
+ * @param width {String} CSS width value. Ex. 30px, 10rem
  * @param props
  * @returns {JSX.Element}
  * @constructor
  */
 export const AutoComplete = ({options=[], onUpdate=noOp, defaultValue=null, allowUserValues=true,
-                               showListOnFocus=true, ...props}) => {
+                               showListOnFocus=true, width=null, ...props}) => {
   const wrapperRef = useRef(null);
   const optionBoxRef = useRef(null);
   const inputRef = useRef(null);
@@ -198,7 +199,7 @@ export const AutoComplete = ({options=[], onUpdate=noOp, defaultValue=null, allo
 
   const buildOptionsBox = () => {
     const optionBoxStyle = {
-      width: `${wrapperRef.current.offsetWidth - 2}px`,
+      width: `${wrapperRef.current.offsetWidth}px`,
     };
 
     const renderOpts = [];
@@ -247,7 +248,7 @@ export const AutoComplete = ({options=[], onUpdate=noOp, defaultValue=null, allo
 
   return (
     <div className="autocomplete-wrapper" ref={wrapperRef}>
-      <input ref={inputRef} {...buildProps()} />
+      <input ref={inputRef} style={{width}} {...buildProps()} />
       { displayOptions ? buildOptionsBox() : null }
     </div>
   );

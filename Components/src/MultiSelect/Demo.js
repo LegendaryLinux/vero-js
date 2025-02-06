@@ -23,6 +23,7 @@ export const Demo = () => {
         onUpdate={(val) => setValue1(val)}
         placeholder="Star Trek TOS Crew"
         defaultValue={["mccoy"]}
+        width="16rem"
       />
       <br/>
       <br/>

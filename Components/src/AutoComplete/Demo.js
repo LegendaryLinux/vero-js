@@ -27,6 +27,7 @@ export const Demo = () => {
         showListOnFocus={true}
         placeholder="Star Trek TOS Crew"
         defaultValue="mccoy"
+        width="14rem"
       />
       <br/>
       <br/>

@@ -10,12 +10,27 @@ const noOp = () => {};
  * @param options {Array.<{name: String, value: String}>}
  * @param onUpdate {Function}
  * @param defaultValue {Array<String>} Array of values to be initially highlighted
- * @param width {String} CSS width value. Ex. 20px, 5rem
+ * @param width {String} CSS width value. Ex. 20px, 5rem. Default 12rem
  * @param props
  * @returns {JSX.Element}
  * @constructor
  */
-export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], width=null, ...props}) => {
+export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], width='12rem', ...props}) => {
+  if (!Array.isArray(options)) {
+    throw new Error(`options prop must be an Array, ${typeof options} provided.`);
+  }
+
+  if (!Array.isArray(defaultValue)) {
+    throw new Error(`defaultValue prop must be an Array, ${typeof defaultValue} provided.`);
+  }
+
+  defaultValue.forEach((val) => {
+    if (!options.find((opt) => opt.value === val)) {
+      console.warn(`defaultValue ${val} is not among provided options, and will be ignored.`);
+      defaultValue = defaultValue.filter((dVal) => dVal !== val);
+    }
+  });
+
   const wrapperRef = useRef(null);
   const optionBoxRef = useRef(null);
   const inputRef = useRef(null);
@@ -109,7 +124,7 @@ export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], width=n
       (props.placeholder || '') :
       selectedOptions.length > 1 ?
         `${selectedOptions.length} values` :
-        options.find((opt) => opt.value === selectedOptions[0]).name
+        options.find((opt) => opt.value === selectedOptions[0])?.name
     delete props.placeholder;
 
     // Overwrite props assigned to input element with our own handlers, then run user-defined handlers afterward
@@ -126,8 +141,8 @@ export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], width=n
   };
 
   return (
-    <div className="multi-select-wrapper" ref={wrapperRef}>
-      <input ref={inputRef} style={{width}} {...buildProps()} />
+    <div className="multi-select-wrapper" style={{width}} ref={wrapperRef}>
+      <input ref={inputRef} {...buildProps()} />
       {
         displayOptions ?
           (

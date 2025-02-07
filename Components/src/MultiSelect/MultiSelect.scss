@@ -1,6 +1,4 @@
 .multi-select-wrapper{
-  width: fit-content;
-
   *{
     box-sizing: border-box;
   }
@@ -20,8 +18,8 @@
     overflow-y: auto;
 
     .multi-select-option{
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 2rem auto;
       align-items: center;
       cursor: pointer;
       padding: 0.5rem;

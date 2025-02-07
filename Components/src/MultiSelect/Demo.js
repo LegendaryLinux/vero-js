@@ -38,11 +38,11 @@ export const Demo = () => {
           {name: 'Montgomery Scott', value: 'scott'},
           {name: 'Pavel Chekov', value: 'chekov'},
           {name: 'Hikaru Sulu', value: 'sulu'},
+          {name: 'A really long option name, like holy crap why would anyone do this? It\'s ridiculous!', value: 'foo'},
         ]}
         onUpdate={(val) => setValue2(val)}
+        defaultValue={['bar']}
         placeholder="Star Trek TOS Crew"
-        defaultValue={["spock"]}
-        disabled
       />
     </div>
   );

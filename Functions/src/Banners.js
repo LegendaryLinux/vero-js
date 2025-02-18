@@ -105,7 +105,7 @@ export const showSuccessBanner = (message, alwaysOnTop=false) => {
 export const showWarningBanner = (message, alwaysOnTop=false) => {
   resetBannerMessage();
   const root = createRoot(document.getElementById('fidelis-banner-message-container'));
-  root.render(<BannerMessage message={message} isWarning={true} alwaysOnTop={alwaysOnTop} warningColor="#000000" />);
+  root.render(<BannerMessage message={message} isWarning={true} alwaysOnTop={alwaysOnTop} textColor="#000000" />);
 }
 
 /**

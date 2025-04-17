@@ -24,6 +24,7 @@ export const Demo = () => {
         placeholder="Star Trek TOS Crew"
         defaultValue={["mccoy"]}
         width="16rem"
+        tooltipPosition="bottom"
       />
       <br/>
       <br/>
@@ -43,6 +44,7 @@ export const Demo = () => {
         onUpdate={(val) => setValue2(val)}
         defaultValue={['bar']}
         placeholder="Star Trek TOS Crew"
+        tooltipPosition="right"
       />
     </div>
   );

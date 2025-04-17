@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import './MultiSelect.scss';
+import './tooltips.scss';
 
 /**
  * Stub function to act as a placeholder if no onUpdate prop is passed to the AutoComplete component
@@ -11,11 +12,13 @@ const noOp = () => {};
  * @param onUpdate {Function}
  * @param defaultValue {Array<String>} Array of values to be initially highlighted
  * @param width {String} CSS width value. Ex. 20px, 5rem. Default 12rem
+ * @param tooltipPosition {String} One of: top, bottom, left, right
  * @param props
  * @returns {JSX.Element}
  * @constructor
  */
-export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], width='12rem', ...props}) => {
+export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], width='12rem', tooltipPosition='top',
+                              ...props}) => {
   if (!Array.isArray(options)) {
     throw new Error(`options prop must be an Array, ${typeof options} provided.`);
   }
@@ -37,9 +40,20 @@ export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], width='
   const [displayOptions, setDisplayOptions] = useState(false);
   const [currentOptions, setCurrentOptions] = useState(options);
   const [selectedOptions, setSelectedOptions] = useState(defaultValue);
+  const [tooltipText, setTooltipText] = useState(null);
 
   useEffect(() => {
     onUpdate(selectedOptions);
+    if (selectedOptions.length < 2) {
+      setTooltipText(null);
+    } else {
+      setTooltipText(
+        currentOptions
+          .filter((opt) => selectedOptions.includes(opt.value))
+          .map((opt) => opt.name)
+          .join(', ') || null
+      );
+    }
   }, [selectedOptions]);
 
   useEffect(() => {
@@ -132,7 +146,6 @@ export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], width='
     cleanProps.onFocus = (e) => {handleInputFocusOrClick(); props.onfocus ? props.onfocus(e) : null};
     cleanProps.onBlur = (e) => {handleInputBlur(); props.onblur ? props.onblur(e) : null};
     cleanProps.onInput = (e) => {handleInput(e); props.oninput ? props.oninput(e) : null};
-    cleanProps.className = `multi-select-input ${props.className || ''}`;
     return cleanProps;
   };
 
@@ -142,7 +155,9 @@ export const MultiSelect = ({options=[], onUpdate=noOp, defaultValue=[], width='
 
   return (
     <div className="multi-select-wrapper" style={{width}} ref={wrapperRef}>
-      <input ref={inputRef} {...buildProps()} />
+      <div data-tooltip={tooltipText} className={` multi-select-input-wrapper tooltip-${tooltipPosition} ${props?.className || ''}`}>
+        <input ref={inputRef} {...buildProps()} className="multi-select-input" />
+      </div>
       {
         displayOptions ?
           (

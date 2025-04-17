@@ -3,6 +3,15 @@
     box-sizing: border-box;
   }
 
+  .multi-select-input-wrapper{
+    display: flex;
+    flex-direction: row;
+
+    .multi-select-input{
+      flex-grow: 1;
+    }
+  }
+
   input:not([type]){
     width: 100%;
   }

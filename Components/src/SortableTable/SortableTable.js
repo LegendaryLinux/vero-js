@@ -1,4 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCaretDown, faCaretUp} from '@fortawesome/free-solid-svg-icons';
 import './SortableTable.scss';
 
 /**
@@ -67,15 +69,26 @@ export const SortableTable = ({headers, data, initialSortKey=null, initialSortAs
     <table className={`sortable-table ${tableClass}`} {...props}>
       <thead>
       <tr>
-        {headers.map((header) => (
-          <th
-            key={header.key}
-            onClick={() => handleHeaderClick(header)}
-            className={`${header.center ? 'center' : null} ${(header.sortable !== false) ? 'sortable' : null}`}
-          >
-            {header.name}
+        {headers.map((header) => {
+          let sortArrow = null;
+          if (sortKey === header.key) {
+            if (sortAsc) {
+              sortArrow = <FontAwesomeIcon icon={faCaretUp} />;
+            } else {
+              sortArrow = <FontAwesomeIcon icon={faCaretDown} />;
+            }
+          }
+
+          return (
+            <th
+              key={header.key}
+              onClick={() => handleHeaderClick(header)}
+              className={`${header.center ? 'center' : null} ${(header.sortable !== false) ? 'sortable' : null}`}
+            >
+              {header.name} {sortArrow}
             </th>
-          ))}
+          )
+        })}
         </tr>
       </thead>
       <tbody>

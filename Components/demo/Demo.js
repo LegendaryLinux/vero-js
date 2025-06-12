@@ -6,6 +6,7 @@ import {Demo as Modal} from '../src/Modal/Demo';
 import {IntegerInput} from '../src/Inputs/IntegerInput';
 import {Demo as MultiSelect} from '../src/MultiSelect/Demo';
 import {NumericInput} from '../src/Inputs/NumericInput';
+import {Demo as PhoneInput} from '../src/Inputs/PhoneInput';
 import {Demo as Tooltip} from '../src/Tooltip/Demo';
 import {Demo as SortableTable} from '../src/SortableTable/Demo';
 
@@ -37,6 +38,14 @@ export const Demo = () => {
 
         <button onClick={() => setActiveComponent(<IntegerInput />)}>
           IntegerInput
+        </button>
+
+        <button onClick={() => setActiveComponent(<PhoneInput />)}>
+          PhoneInput
+        </button>
+
+        <button onClick={() => setActiveComponent(null)}>
+          ZipInput
         </button>
 
         <button onClick={() => setActiveComponent(<Tooltip />)}>

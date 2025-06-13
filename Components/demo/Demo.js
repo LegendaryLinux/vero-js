@@ -3,10 +3,10 @@ import {createRoot} from 'react-dom/client';
 import {Demo as AutoComplete} from '../src/AutoComplete/Demo';
 import {Demo as InfiniteScrollTable} from '../src/InfiniteScrollTable/Demo';
 import {Demo as Modal} from '../src/Modal/Demo';
-import {IntegerInput} from '../src/Inputs/IntegerInput';
-import {Demo as MultiSelect} from '../src/MultiSelect/Demo';
 import {NumericInput} from '../src/Inputs/NumericInput';
+import {IntegerInput} from '../src/Inputs/IntegerInput';
 import {Demo as PhoneInput} from '../src/Inputs/PhoneInput';
+import {Demo as MultiSelect} from '../src/MultiSelect/Demo';
 import {Demo as Tooltip} from '../src/Tooltip/Demo';
 import {Demo as SortableTable} from '../src/SortableTable/Demo';
 

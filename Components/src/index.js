@@ -10,5 +10,5 @@ import {Popover} from './Popover/Popover';
 import {Tooltip} from './Tooltip/Tooltip';
 import {SortableTable} from './SortableTable/SortableTable';
 
-export {AutoComplete, InfiniteScrollTable, MultiSelect, NumericInput, IntegerInput, PhoneInput, Modal,
-  Popover, Tooltip, SortableTable};
+export {AutoComplete, InfiniteScrollTable, MultiSelect, NumericInput, IntegerInput, PhoneInput, ZipInput,
+  Modal, Popover, Tooltip, SortableTable};

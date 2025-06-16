@@ -3,9 +3,10 @@ import {createRoot} from 'react-dom/client';
 import {Demo as AutoComplete} from '../src/AutoComplete/Demo';
 import {Demo as InfiniteScrollTable} from '../src/InfiniteScrollTable/Demo';
 import {Demo as Modal} from '../src/Modal/Demo';
-import {NumericInput} from '../src/Inputs/NumericInput';
-import {IntegerInput} from '../src/Inputs/IntegerInput';
-import {Demo as PhoneInput} from '../src/Inputs/PhoneInput';
+import {NumericInputDemo as NumericInput} from '../src/Inputs/Demos';
+import {IntegerInputDemo as IntegerInput} from '../src/Inputs/Demos';
+import {PhoneInputDemo as PhoneInput} from '../src/Inputs/Demos';
+import {ZipInputDemo as ZipInput} from '../src/Inputs/Demos';
 import {Demo as MultiSelect} from '../src/MultiSelect/Demo';
 import {Demo as Tooltip} from '../src/Tooltip/Demo';
 import {Demo as SortableTable} from '../src/SortableTable/Demo';
@@ -44,7 +45,7 @@ export const Demo = () => {
           PhoneInput
         </button>
 
-        <button onClick={() => setActiveComponent(null)}>
+        <button onClick={() => setActiveComponent(<ZipInput />)}>
           ZipInput
         </button>
 

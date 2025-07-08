@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCaretDown, faCaretUp} from '@fortawesome/free-solid-svg-icons';
+import {faSort, faSortUp, faSortDown} from '@fortawesome/free-solid-svg-icons';
 import './SortableTable.scss';
 
 /**
@@ -69,26 +69,32 @@ export const SortableTable = ({headers, data, initialSortKey=null, initialSortAs
     <table className={`sortable-table ${tableClass}`} {...props}>
       <thead>
       <tr>
-        {headers.map((header) => {
-          let sortArrow = null;
-          if (sortKey === header.key) {
-            if (sortAsc) {
-              sortArrow = <FontAwesomeIcon icon={faCaretUp} />;
-            } else {
-              sortArrow = <FontAwesomeIcon icon={faCaretDown} />;
-            }
-          }
+        {
+          headers.map((header) => {
+            const fadedSortArrow = (header.sortable !== false) ?
+              <FontAwesomeIcon icon={faSort} className="faded-sort-arrow" /> :
+              null;
 
-          return (
-            <th
-              key={header.key}
-              onClick={() => handleHeaderClick(header)}
-              className={`${header.center ? 'center' : null} ${(header.sortable !== false) ? 'sortable' : null}`}
-            >
-              {header.name} {sortArrow}
-            </th>
-          )
-        })}
+            let activeSortArrow = null;
+            if (sortKey === header.key) {
+              if (sortAsc) {
+                activeSortArrow = <FontAwesomeIcon icon={faSortUp} className="active-sort-arrow" />;
+              } else {
+                activeSortArrow = <FontAwesomeIcon icon={faSortDown} className="active-sort-arrow" />;
+              }
+            }
+
+            return (
+              <th
+                key={header.key}
+                onClick={() => handleHeaderClick(header)}
+                className={`${header.center ? 'center' : null} ${(header.sortable !== false) ? 'sortable' : null}`}
+              >
+                {header.name} {fadedSortArrow}{activeSortArrow}
+              </th>
+            )
+          })
+        }
         </tr>
       </thead>
       <tbody>

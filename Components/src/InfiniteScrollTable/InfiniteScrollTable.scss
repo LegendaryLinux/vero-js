@@ -32,6 +32,18 @@
     thead tr{
       height: 2em;
       background-color: $table-header-background;
+
+      th{
+        .faded-sort-arrow{
+          color: #b6b6b6;
+          width: 1rem;
+        }
+
+        .active-sort-arrow{
+          margin-left: -1rem;
+          width: 1rem;
+        }
+      }
     }
 
     thead, tbody{

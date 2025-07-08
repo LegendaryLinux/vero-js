@@ -17,6 +17,16 @@
         &.center{
           text-align: center;
         }
+
+        .faded-sort-arrow{
+          color: #b6b6b6;
+          width: 1rem;
+        }
+
+        .active-sort-arrow{
+          margin-left: -1rem;
+          width: 1rem;
+        }
       }
     }
   }

@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCaretUp, faCaretDown, faSpinner} from '@fortawesome/free-solid-svg-icons';
+import {faSort, faSortUp, faSortDown, faSpinner} from '@fortawesome/free-solid-svg-icons';
 import './InfiniteScrollTable.scss';
 
 /**
@@ -80,12 +80,16 @@ export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<F
 
   const makeHeader = () => {
     const headerColumns = headers.map((column) => {
-      let sortArrow = null;
+      const fadedSortArrow = (column.sortable !== false) ?
+        <FontAwesomeIcon icon={faSort} className="faded-sort-arrow" /> :
+        null
+
+      let activeSortArrow = null;
       if (sortValue === column.key) {
         if (sortAsc) {
-          sortArrow = <FontAwesomeIcon icon={faCaretUp} />;
+          activeSortArrow = <FontAwesomeIcon icon={faSortUp} className="active-sort-arrow" />;
         } else {
-          sortArrow = <FontAwesomeIcon icon={faCaretDown} />;
+          activeSortArrow = <FontAwesomeIcon icon={faSortDown} className="active-sort-arrow" />;
         }
       }
 
@@ -102,7 +106,7 @@ export const InfiniteScrollTable = ({headers, loadMoreData, loadingComponent=(<F
 
       return (
         <th onClick={clickFunc} key={column.key} className={`${sortClass} ${centerClass}`}>
-          {column.name}&nbsp;{sortArrow}
+          {column.name}&nbsp;{fadedSortArrow}{activeSortArrow}
         </th>
       );
     });

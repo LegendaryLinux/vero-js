@@ -1,6 +1,6 @@
 {
   "name": "@veroproducts/components",
-  "version": "0.14.1",
+  "version": "0.15.1",
   "description": "A collection of Javascripts and React components developed for Vero, LLC's websites.",
   "main": "dist/Components.js",
   "module": "dist/Components.js",
@@ -27,9 +27,9 @@
   },
   "homepage": "https://github.com/LegendaryLinux/vero-js#readme",
   "devDependencies": {
-    "@babel/core": "^7.27.4",
-    "@babel/plugin-transform-runtime": "^7.27.4",
-    "@babel/preset-env": "^7.27.2",
+    "@babel/core": "^7.28.0",
+    "@babel/plugin-transform-runtime": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
     "@babel/preset-react": "^7.27.1",
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",

@@ -10,6 +10,13 @@ export const PhoneInput = ({value, defaultValue, onChange, onInput, onKeyDown, e
     }
   }, [defaultValue, value]);
 
+  // Update display value when value prop changes (for controlled component)
+  useEffect(() => {
+    if (value) {
+      setDisplayValue(formatPhoneNumber(value));
+    }
+  }, [value]);
+
   const formatPhoneNumber = (phone) => {
     const digits = phone.replace(/\D/g, '');
 
@@ -20,14 +27,16 @@ export const PhoneInput = ({value, defaultValue, onChange, onInput, onKeyDown, e
   };
 
   const handleChange = (evt) => {
+    const rawValue = evt.target.value.replace(/\D/g, '').slice(0, 10);
+    const formattedValue = formatPhoneNumber(rawValue);
+    setDisplayValue(formattedValue);
+
     // Create a synthetic event similar to the original
     const syntheticEvent = {
       ...evt,
       target: {
         ...evt.target,
-        value: eventGivesRawDigits ?
-          evt.target.value.replace(/\D/g, '').slice(0, 10) :
-          evt.target.value,
+        value: eventGivesRawDigits ? rawValue : formattedValue,
       }
     };
 
@@ -59,13 +68,18 @@ export const PhoneInput = ({value, defaultValue, onChange, onInput, onKeyDown, e
     // Prevent default paste behavior
     evt.preventDefault();
 
+    // Extract only numeric characters and limit to 10 digits
+    const rawValue = pasteData.replace(/\D/g, '').slice(0, 10);
+    const formattedValue = formatPhoneNumber(rawValue);
+    setDisplayValue(formattedValue);
+
     // Call the onChange handler with the numeric value
     if (onChange) {
       const syntheticEvent = {
         ...evt,
         target: {
           ...evt.target,
-          value: pasteData.replace(/\D/g, '').slice(0, 10),
+          value: eventGivesRawDigits ? rawValue : formattedValue,
         }
       };
       onChange(syntheticEvent);

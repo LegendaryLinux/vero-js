@@ -1,8 +1,9 @@
 {
   "name": "@veroproducts/classes",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A collection of Javascripts and React components developed for Vero, LLC's websites.",
   "main": "dist/Classes.js",
+  "types": "dist/Classes.d.ts",
   "scripts": {
     "host": "http-server -p 8080 public/",
     "dev": "webpack --config webpack.config.dev.js --watch",
@@ -26,14 +27,14 @@
   },
   "homepage": "https://github.com/LegendaryLinux/vero-js#readme",
   "devDependencies": {
-    "@babel/core": "^7.26.7",
-    "@babel/preset-env": "^7.26.7",
-    "babel-loader": "^9.2.1",
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "babel-loader": "^10.0.0",
     "http-server": "^14.1.1",
-    "webpack": "^5.97.1",
+    "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "@sjmc11/tourguidejs": "^0.0.19"
+    "@sjmc11/tourguidejs": "^0.0.27"
   }
 }

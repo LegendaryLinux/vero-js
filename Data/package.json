@@ -1,8 +1,9 @@
 {
   "name": "@veroproducts/data",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A collection of Javascripts and React components developed for Vero, LLC's websites.",
   "main": "dist/Data.js",
+  "types": "dist/Data.d.ts",
   "scripts": {
     "build": "webpack --config webpack.config.prod.js"
   },
@@ -17,10 +18,10 @@
   },
   "homepage": "https://github.com/LegendaryLinux/vero-js#readme",
   "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "babel-loader": "^9.2.1",
-    "webpack": "^5.97.1",
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "babel-loader": "^10.0.0",
+    "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {}

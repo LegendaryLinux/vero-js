@@ -10,6 +10,7 @@ import {ZipInputDemo as ZipInput} from '../src/Inputs/Demos';
 import {Demo as MultiSelect} from '../src/MultiSelect/Demo';
 import {Demo as Tooltip} from '../src/Tooltip/Demo';
 import {Demo as SortableTable} from '../src/SortableTable/Demo';
+import {Demo as Popover} from '../src/Popover/Demo';
 
 export const Demo = () => {
   const [activeComponent, setActiveComponent] = useState(null);
@@ -55,6 +56,10 @@ export const Demo = () => {
 
         <button onClick={() => setActiveComponent(<SortableTable />)}>
           SortableTable
+        </button>
+
+        <button onClick={() => setActiveComponent(<Popover />)}>
+          Popover
         </button>
       </div>
       <div style={{border: '1px solid #000000', width: '100%', marginTop: '0.5rem'}}>

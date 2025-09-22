@@ -53,10 +53,13 @@ export const Popover = ({content, placement='bottom', closeOnContentClick=false,
   const closeModal = () => setIsOpen(false);
 
   const updateContentPosition = () => {
-    // Determine size and position of child element
+    // Determine size and position of child element relative to the viewport
     const childRect = childRef.current.getBoundingClientRect();
-    const childX = childRect.left;
-    const childY = childRect.top;
+
+    // Account for scroll position of the viewport
+    const childX = window.scrollX + childRect.left;
+    const childY = window.scrollY + childRect.top;
+
     const childWidth = childRect.width;
     const childHeight = childRect.height;
     const childCenterX = Math.floor(childX + (childWidth / 2));
@@ -99,16 +102,16 @@ export const Popover = ({content, placement='bottom', closeOnContentClick=false,
       top = 1;
     }
 
-    if ((top + contentHeight) > window.innerHeight) {
-      top = (window.innerHeight - contentHeight - 1);
+    if ((top + contentHeight) > document.body.scrollHeight) {
+      top = (window.scrollY + window.innerHeight - contentHeight - 1);
     }
 
     if (left < 1) {
       left = 1;
     }
 
-    if ((left + contentWidth) > window.innerWidth) {
-      left = (window.innerWidth - contentWidth - 1);
+    if ((left + contentWidth) > document.body.scrollWidth) {
+      left = (window.scrollX + window.innerWidth - contentWidth - 1);
     }
 
     // Apply calculated distances to content element

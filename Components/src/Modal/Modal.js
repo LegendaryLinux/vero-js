@@ -16,17 +16,24 @@ export const Modal = ({trigger, closeClass='modal-close', dialogClass='', childr
 
   const openModal = () => {
     dialogRef.current.showModal();
-    dialogRef.current.querySelectorAll(`.${closeClass}`).forEach((e) => {
-      e.addEventListener('click', closeModal);
-    });
   }
 
   const closeModal = () => dialogRef.current.close();
+  const handleDialogClick = (event) => {
+    const closeTarget = event.target.closest(`.${closeClass}`);
+    if (closeTarget && dialogRef.current?.contains(closeTarget)) {
+      closeModal();
+    }
+  };
 
   return (
     <>
       <span onClick={openModal}>{trigger}</span>
-      <dialog ref={dialogRef} className={`modal-dialog ${dialogClass}`}>
+      <dialog
+        ref={dialogRef}
+        className={`modal-dialog ${dialogClass}`}
+        onClick={handleDialogClick}
+      >
         {children}
       </dialog>
     </>
